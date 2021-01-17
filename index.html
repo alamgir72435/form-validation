@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form validation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="card">
+          <div class="card-header">
+            <h4>Sign up</h4>
+          </div>
+          <div class="card-body">
+            <div id="error-message"></div>
+
+            <form action="">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input id="name" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="pass">Password</label>
+                <input id="pass" type="password" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="re-pass">Confirm Password</label>
+                <input id="re-pass" type="password" class="form-control" />
+              </div>
+              <button
+                type="submit"
+                id="submit-button"
+                class="btn btn-primary mt-3"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
