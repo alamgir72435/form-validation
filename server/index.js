@@ -6,11 +6,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
+// Database Connection
+
+
+// Schema
+
+// Model
+
 app.get("/", (req, res) => {
   res.send("<h2>Server running</h2>");
 });
 
-app.post("/add", (req, res) => {
+
+
+app.post("/add", async(req, res) => {
   const { fullname, email, pass, rePass } = req.body;
 
   if (fullname == "") {
@@ -29,12 +38,27 @@ app.post("/add", (req, res) => {
       message: "password must not be Empty from server !",
     });
   } else {
-    // Save Data to server
+    // Save Data to Database
+    let newUser = new Model({
+      fullname, email, pass, rePass
+    })
 
-    return res.json({
-      error: false,
-      message: "Success !",
-    });
+    const created = await newUser.save()
+    // console.log(fullname, email, pass, rePass)
+
+    if(created){
+      return res.json({
+        error: false,
+        message: "Success !",
+      });
+    }else{
+      return res.json({
+        error: true,
+        message: "server Not Ready !",
+      });
+    }
+
+    
   }
 });
 
